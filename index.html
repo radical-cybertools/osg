@@ -27,14 +27,18 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h2>
+<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to RADICAL OSG page</h2>
 
-<p>We (RADICAL) are authorized to use two Submit Nodes managed by XSEDE and OSG Connect. Both  Submit Nodes are part of the OSG virtual organization (VO) and they both submit to the same OSG Entry Point. Apparently, the Entry Point gives access to ~120 sites [1] whatever ‘site’ might mean in this context, but the command connect status of the CI Connect  [25] distribution used by OSG connect indicates four resource pools: OSG Grid, Clemson Palmetto,  Syracuse OrangeGrid, and UChicago UC3. These pools comprise diverse types of resources and middleware. Both XSEDE and OSG Connect Submit Nodes use GlideinWMS to submit pilots (i.e., Glidein Workers) to OSG Grid and maybe---but there are indications against it---Clemson Palmetto [15]. Probably but we are missing documentation, HTCondor is used to submit to Syracuse OrangeGrid and UChicago UC3 [15]</p>
+<p>We (RADICAL) are authorized to use two Submit Nodes managed by XSEDE and OSG Connect. Both  Submit Nodes are part of the OSG virtual organization (VO) and they both submit to the same OSG Entry Point. Apparently, the Entry Point gives access to ~120 sites [1] whatever ‘site’ might mean in this context, but the command connect status of the CI Connect  [25] distribution used by OSG connect indicates four resource pools: <strong>OSG Grid</strong>, <strong>Clemson Palmetto</strong>, <strong>Syracuse OrangeGrid</strong>, and ,<strong>UChicago UC3</strong>. These pools comprise diverse types of resources and middleware. Both XSEDE and OSG Connect Submit Nodes use GlideinWMS to submit pilots (i.e., Glidein Workers) to OSG Grid and maybe---but there are indications against it---Clemson Palmetto [15]. Probably but we are missing documentation, HTCondor is used to submit to Syracuse OrangeGrid and UChicago UC3 [15]</p>
+
+<h2>
+<a id="different-grids" class="anchor" href="#different-grids" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Different Grids</h2>
+
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a id="osg-grid" class="anchor" href="#osg-grid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OSG Grid</h3>
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+<p>This resource pool is, at the moment, undocumented and difficult to inspect resource-wise. By sshing into <code>login.osgconnect.net</code> and using the command </code>connect status</code>, and <code>connect status -f | less</code>. We know that the OSG Grid pool of OSG Connect has a variable number of ‘resources’ (in this context I think it means single core glideins) in the order of ~11K but we do not see on what type of resources these glideins have been instantiated. This is to be expected with OSG but incompatible with running experiments to see whether AIMES can do better resource selection than OSG on the base of specific workload requirements. These experiments would require bundle to know the properties/capabilities of the resources where these glideins have been instantiated.</p>
 
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
