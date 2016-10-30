@@ -84,7 +84,8 @@
 <a id="getting-info" class="anchor" href="#architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting information about jobs and glideins</h3>
 
 <p><code>
-$ condor_q -pool osg-flock.grid.iu.edu -global -autoformat:,Vh \ <br>
+$ condor_q -pool osg-flock.grid.iu.edu -global -autoformat:,Vh \ </code></p>
+<p style="text-indent: 5em;"><code>
 globaljobid \ <br>
 projectname \ <br>
 remotehost \ <br>
@@ -93,9 +94,12 @@ JobStartDate \ <br>
 MATCH_EXP_JOB_GLIDEIN_Factory \ <br>
 RequestCpus \ <br>
 xsede_job \ <br>
-RemoteSlotID <br>
-"login01.osgconnect.net#9021661.0#1430170451" , "Swift" , undefined , 1430170431, undefined , undefined , 1 , undefined, undefined <br> 
-$ condor_status -pool osg-flock.grid.iu.edu -autoformat:,Vh \ <br>
+RemoteSlotID
+</code></p>
+
+<p><code>"login01.osgconnect.net#9021661.0#1430170451" , "Swift" , undefined , 1430170431, undefined , undefined , 1 , undefined, undefined </code></p>
+<p><code>$ condor_status -pool osg-flock.grid.iu.edu -autoformat:,Vh \ </code></p>
+<p style="text-indent: 5em;"><code>
 GlobalJobId \ <br>
 glidein_site \ <br>
 glidein_resourcename \ <br>
@@ -120,8 +124,9 @@ GLIDEIN_Factory \ <br>
 GLIDEIN_MASTER_NAME \ <br>
 DaemonStartTime \ <br>
 EnteredCurrentActivity \ <br>
-SlotID
-undefined  , "ISI_VM" , "ISI_VM" , "04940910-7ada-4bfb-b9fa-3e7d6dc2c32a.novalocal", undefined , "Unclaimed", "Idle" , 1445041394 , undefined , true , true , 8 , 15950         , 7 , 15822 , 8.0 , 8 , 2 , 15950 , "Partitionable", 7 , undefined , undefined , 1445041115 , 1445041394 , 1
+SlotID </code</p>
+<p><code>
+undefined  , "ISI_VM" , "ISI_VM" , "04940910-7ada-4bfb-b9fa-3e7d6dc2c32a.novalocal", undefined , "Unclaimed", "Idle" , 1445041394 , undefined , true , true , 8 , 15950         , 7 , 15822 , 8.0 , 8 , 2 , 15950 , "Partitionable", 7 , undefined , undefined , 1445041115 , 1445041394 , 1 <br><br><br>
 </code></p>
 
 <h3>
