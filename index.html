@@ -48,7 +48,7 @@
 <h3>
 <a id="syracuse-orange-grid" class="anchor" href="#syracuse-orange-grid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syracuse OrangeGrid</h3>
 
-<p>This is a Campus Grid with a HTCondor software stack and a pool of workstations. They developed in house a HTCondor Virtual Machine Coordinator (CVMC) [19]. This VM is installed on different types of workstations/small clusters with diverse OSs (windows, linux) and hypervisors [24]. Condor schedules jobs on those VMs that run only when the workstations are idle. Accordingly, <code>connect status -f | less</code> indicates OrangeGrid resources as <code>3385@AS-ES-LAB-04-</code> or <code>1829@LIB-LEBIRD1-3<code>.</p>
+<p>This is a Campus Grid with a HTCondor software stack and a pool of workstations. They developed in house a HTCondor Virtual Machine Coordinator (CVMC) [19]. This VM is installed on different types of workstations/small clusters with diverse OSs (windows, linux) and hypervisors [24]. Condor schedules jobs on those VMs that run only when the workstations are idle. Accordingly, <code>connect status -f | less</code> indicates OrangeGrid resources as <code>3385@AS-ES-LAB-04-</code> or <code>1829@LIB-LEBIRD1-3</code>.</p>
 
 <h3>
 <a id="uchicago-uc3" class="anchor" href="#uchicago-uc3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UChicago UC3</h3>
@@ -60,6 +60,17 @@
 <code>ldapsearch -LLL -h is.grid.iu.edu -p 2170 -x -b 'o=grid' '(&(objectClass=GlueCE)(GlueCEAccessControlBaseRule=VO:osg))' GLIDEIN_ResourceName|grep -v dn:|cut -f2 -d=|cut -f1 -d,|sort|uniq</code
 
 </p>
+
+<h2>
+<a id="osg-terminology" class="anchor" href="#osg-terminology" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OSG-specific Terminology</h2>
+
+<p><strong>Submit Node</strong>A ‘machine’ where the user can log on via ssh. Equivalent to a HPC cluster head/front node. Also called: submit host/Point.</p>
+<p><strong>Entry Point</strong>Generic term referring to the interface between the submit node and the (condor) pool or resources.</p>
+<p><strong>GlideinWMS</strong>Set of services used to instantiate pilots (glide-ins) on Grid resources and condor pools in general.</p>
+<p><strong>HTCondor CE</strong>Computing Element (CE)</p>
+<p><strong>HTConder SE</strong>Storage Element (SE)</p>
+<p><strong>Condor</strong>A batch system + scheduler used to assign condor jobs to condor resources. Equivalent to PBS/SGE/SLURM etc.</p>
+<p><strong>Worker Node (WN) Client</strong>The service installed on every compute node/resource of a condor pool.</p>
 
 
 
