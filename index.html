@@ -30,7 +30,7 @@
         <h2>
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to RADICAL OSG page</h2>
 
-<p>We (RADICAL) are authorized to use two Submit Nodes managed by XSEDE and OSG Connect. Both  Submit Nodes are part of the OSG virtual organization (VO) and they both submit to the same OSG Entry Point. Apparently, the Entry Point gives access to ~120 sites [1] whatever ‘site’ might mean in this context, but the command connect status of the CI Connect  [25] distribution used by OSG connect indicates four resource pools: <strong>OSG Grid</strong>, <strong>Clemson Palmetto</strong>, <strong>Syracuse OrangeGrid</strong>, and ,<strong>UChicago UC3</strong>. These pools comprise diverse types of resources and middleware. Both XSEDE and OSG Connect Submit Nodes use GlideinWMS to submit pilots (i.e., Glidein Workers) to OSG Grid and maybe---but there are indications against it---Clemson Palmetto [15]. Probably but we are missing documentation, HTCondor is used to submit to Syracuse OrangeGrid and UChicago UC3 [15]</p>
+<p>We (RADICAL) are authorized to use two Submit Nodes managed by XSEDE and OSG Connect. Both  Submit Nodes are part of the OSG virtual organization (VO) and they both submit to the same OSG Entry Point. Apparently, the Entry Point gives access to ~120 sites [1] whatever ‘site’ might mean in this context, but the command connect status of the CI Connect  [25] distribution used by OSG connect indicates four resource pools: <strong>OSG Grid</strong>, <strong>Clemson Palmetto</strong>, <strong>Syracuse OrangeGrid</strong>, and <strong>UChicago UC3</strong>. These pools comprise diverse types of resources and middleware. Both XSEDE and OSG Connect Submit Nodes use GlideinWMS to submit pilots (i.e., Glidein Workers) to OSG Grid and maybe---but there are indications against it---Clemson Palmetto [15]. Probably but we are missing documentation, HTCondor is used to submit to Syracuse OrangeGrid and UChicago UC3 [15]</p>
 
 <h2>
 <a id="different-grids" class="anchor" href="#different-grids" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Different Grids</h2>
@@ -41,14 +41,36 @@
 <p>This resource pool is, at the moment, undocumented and difficult to inspect resource-wise. By sshing into <code>login.osgconnect.net</code> and using the command </code>connect status</code>, and <code>connect status -f | less</code>. We know that the OSG Grid pool of OSG Connect has a variable number of ‘resources’ (in this context I think it means single core glideins) in the order of ~11K but we do not see on what type of resources these glideins have been instantiated. This is to be expected with OSG but incompatible with running experiments to see whether AIMES can do better resource selection than OSG on the base of specific workload requirements. These experiments would require bundle to know the properties/capabilities of the resources where these glideins have been instantiated.</p>
 
 <h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<a id="clemson-palmetto" class="anchor" href="#clemson-palmetto" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clemson Palmetto</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>This is Campus Grid with a total of 22328 cores from 9972 clusters of 20 different types with both shared and distributed memory [16]. OSG Connect “sees” 1360 resources ( probably single cores of compute nodes in this context) and as for OSG Grid, it is not documented/clear what type of cluster those resources belong to. [15] seems to imply that these resources are accessed from OSG Connect via glide-ins but <code>connect status -f | less</code> might indicate differently. While resources for OSG Grid are listed as, for example, <code>glidein_2120656_61</code> or <code>slot1_2@glidein_26</code> those on Palmetto are listed as, for example, <code>18084@node0020</code>. Is this suggesting a direct interaction with Palmetto, maybe via a HTCondor software stack installed at Palmetto’s resources?</p>
+
+<h3>
+<a id="syracuse-orange-grid" class="anchor" href="#syracuse-orange-grid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syracuse OrangeGrid</h3>
+
+<p>This is a Campus Grid with a HTCondor software stack and a pool of workstations. They developed in house a HTCondor Virtual Machine Coordinator (CVMC) [19]. This VM is installed on different types of workstations/small clusters with diverse OSs (windows, linux) and hypervisors [24]. Condor schedules jobs on those VMs that run only when the workstations are idle. Accordingly, <code>connect status -f | less</code> indicates OrangeGrid resources as <code>3385@AS-ES-LAB-04-</code> or <code>1829@LIB-LEBIRD1-3<code>.</p>
+
+UChicago UC3
+This is a Campus Grid [22, 23] composed of clusters and resource pools of diverse size and with diverse middleware. Bosco [21] is used to expose resources managed via PBS, SGE, and SLURM while Condor is used for other clusters/pools including something called “UC3 seeders” with, apparently, 544 job slots [23]. This is what UC3 is but, as usual, I did not manage to find documentation about what portion of UC3 is usable from OSG Connect and with what properties and capabilities.
+
+<h3>
+<a id="uchicago-uc3" class="anchor" href="#uchicago-uc3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UChicago UC3</h3>
+
+<p>This is a Campus Grid [22, 23] composed of clusters and resource pools of diverse size and with diverse middleware. Bosco [21] is used to expose resources managed via PBS, SGE, and SLURM while Condor is used for other clusters/pools including something called “UC3 seeders” with, apparently, 544 job slots [23]. This is what UC3 is but, as usual, I did not manage to find documentation about what portion of UC3 is usable from OSG Connect and with what properties and capabilities.
+
+Mark indicated [26] how to get the list of sites in the OSG VO via a ldap client (i.e. interrogating the GIP [8], the information system maintained by OSG):
+
+<code>ldapsearch -LLL -h is.grid.iu.edu -p 2170 -x -b 'o=grid' '(&(objectClass=GlueCE)(GlueCEAccessControlBaseRule=VO:osg))' GLIDEIN_ResourceName|grep -v dn:|cut -f2 -d=|cut -f1 -d,|sort|uniq</code
+
+</p>
+
+
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
 <p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
