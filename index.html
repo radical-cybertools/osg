@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/radical-cybertools/radical-osg.github.io">View on GitHub</a>
 
-          <h1 id="project_title">radical-osg.gitHub.io</h1>
+          <h1 id="project_title">RADICAL OSG</h1>
           <h2 id="project_tagline">This repository contains all of the notes, experiments, analysis, design, and experience which we (the RADICAL team) have gathered </h2>
 
         </header>
@@ -72,7 +72,12 @@
 <p><strong>Condor: </strong>A batch system + scheduler used to assign condor jobs to condor resources. Equivalent to PBS/SGE/SLURM etc.</p>
 <p><strong>Worker Node (WN) Client: </strong>The service installed on every compute node/resource of a condor pool.</p>
 
+<h2>
+<a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture</h2>
 
+<p>CI Connect + HTCondor + GlideinWMS enables multiple configurations. Here we describe the one of XSEDE OSG and OSG Connect. Both XSEDE OSG and OSG Connect are Submit Nodes for the OSG Virtual Organization (VO). The OSG Connect architecture is sparsely and superficially documented. Red boxes indicate the generic architecture of (a portion of) OSG Grid as I do not know how to collect information about the resources composing the OSG Grid pool used by OSG Connect.</p>
+
+<img src="images/osg-architecture.png" alt="osg-architecture" style="width:640px;height:480px;"
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
