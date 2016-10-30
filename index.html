@@ -50,15 +50,12 @@
 
 <p>This is a Campus Grid with a HTCondor software stack and a pool of workstations. They developed in house a HTCondor Virtual Machine Coordinator (CVMC) [19]. This VM is installed on different types of workstations/small clusters with diverse OSs (windows, linux) and hypervisors [24]. Condor schedules jobs on those VMs that run only when the workstations are idle. Accordingly, <code>connect status -f | less</code> indicates OrangeGrid resources as <code>3385@AS-ES-LAB-04-</code> or <code>1829@LIB-LEBIRD1-3<code>.</p>
 
-UChicago UC3
-This is a Campus Grid [22, 23] composed of clusters and resource pools of diverse size and with diverse middleware. Bosco [21] is used to expose resources managed via PBS, SGE, and SLURM while Condor is used for other clusters/pools including something called “UC3 seeders” with, apparently, 544 job slots [23]. This is what UC3 is but, as usual, I did not manage to find documentation about what portion of UC3 is usable from OSG Connect and with what properties and capabilities.
-
 <h3>
 <a id="uchicago-uc3" class="anchor" href="#uchicago-uc3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UChicago UC3</h3>
 
-<p>This is a Campus Grid [22, 23] composed of clusters and resource pools of diverse size and with diverse middleware. Bosco [21] is used to expose resources managed via PBS, SGE, and SLURM while Condor is used for other clusters/pools including something called “UC3 seeders” with, apparently, 544 job slots [23]. This is what UC3 is but, as usual, I did not manage to find documentation about what portion of UC3 is usable from OSG Connect and with what properties and capabilities.
+<p>This is a Campus Grid [22, 23] composed of clusters and resource pools of diverse size and with diverse middleware. Bosco [21] is used to expose resources managed via PBS, SGE, and SLURM while Condor is used for other clusters/pools including something called “UC3 seeders” with, apparently, 544 job slots [23]. This is what UC3 is but, as usual, I did not manage to find documentation about what portion of UC3 is usable from OSG Connect and with what properties and capabilities.</p>
 
-Mark indicated [26] how to get the list of sites in the OSG VO via a ldap client (i.e. interrogating the GIP [8], the information system maintained by OSG):
+<p>Mark indicated [26] how to get the list of sites in the OSG VO via a ldap client (i.e. interrogating the GIP [8], the information system maintained by OSG):<p>
 
 <code>ldapsearch -LLL -h is.grid.iu.edu -p 2170 -x -b 'o=grid' '(&(objectClass=GlueCE)(GlueCEAccessControlBaseRule=VO:osg))' GLIDEIN_ResourceName|grep -v dn:|cut -f2 -d=|cut -f1 -d,|sort|uniq</code
 
